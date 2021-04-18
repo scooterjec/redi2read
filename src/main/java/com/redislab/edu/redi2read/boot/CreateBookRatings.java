@@ -36,7 +36,9 @@ public class CreateBookRatings implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (bookRatingRepo.count() == 0) {
+        if (bookRatingRepo.count() != 0) {
+            log.info(">>> Book Ratings already exist...");
+        } else {
             Random random = new Random();
             IntStream.range(0, numberOfRatings).forEach(n -> {
                 String bookId = redisTemplate.opsForSet().randomMember(Book.class.getName());

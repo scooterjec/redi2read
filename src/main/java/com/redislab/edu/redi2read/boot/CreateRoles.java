@@ -21,7 +21,9 @@ public class CreateRoles implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println(">>> Hello from the CreateRoles CommandLineRunner...");
-        if (roleRepository.count() == 0) {
+        if (roleRepository.count() != 0) {
+            log.info(">>> Roles already exist...");
+        } else {
             Role adminRole = Role.builder().name("admin").build();
             Role customerRole = Role.builder().name("customer").build();
             roleRepository.save(adminRole);

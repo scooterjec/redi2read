@@ -39,7 +39,9 @@ public class CreateBooks  implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        if (bookRepository.count() == 0) {
+        if (bookRepository.count() != 0) {
+            log.info(">>> Books already exist...");
+        } else {
             ObjectMapper mapper = new ObjectMapper();
             TypeReference<List<Book>> typeReference = new TypeReference<List<Book>>(){
                 

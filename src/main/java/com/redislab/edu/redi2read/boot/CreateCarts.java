@@ -44,7 +44,9 @@ public class CreateCarts implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (cartRepository.count()==0) {
+        if (cartRepository.count()!=0) {
+            log.info(">>> Carts already exists...");
+        } else {
             Random random = new Random();
             // loops for the number of carts to create
             IntStream.range(0, numberOfCarts)

@@ -34,7 +34,9 @@ public class CreateUsers implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        if (userRepository.count()==0) {
+        if (userRepository.count()!=0) {
+            log.info(">>> Users already exist...");
+        } else {
             // load the roles
             Role admin = roleRepository.findFirstByName("admin");
             Role customer = roleRepository.findFirstByName("customer");

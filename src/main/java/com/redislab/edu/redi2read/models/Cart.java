@@ -1,12 +1,10 @@
 package com.redislab.edu.redi2read.models;
 
-import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Stream;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.Singular;
-import lombok.Builder;
 
 @Data
 @Builder
